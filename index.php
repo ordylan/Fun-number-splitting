@@ -5,6 +5,10 @@ Fun number splitting<br>
 <input type="submit"></h2>
 </form>
 <?php
+/*
+~ORDYLAN~
+Github: https://github.com/ordylan/Fun-number-splitting
+*/
 function getf($n){
 $fuhao = array('+',"-","*","/");
 $n = $n % 4;
@@ -19,6 +23,9 @@ $number[$i] = $number1[$i];
 $tonum = $_GET["a"];
 $t = 0;
 $total = 0;
+$fixbug = 0;
+
+if($_GET["a"] && $_GET["b"]){
 for ($i = 0; $i < count($number); $i++) {
 //$shizi = $shizi.$number[0].getf(floor($i/16)).$number[1].getf(floor($i/4)).$number[2].getf($i).$number[3];
 
@@ -46,12 +53,21 @@ if(strstr($shizi, "/0")){$shizi = "";}
 $shizia = eval("return $shizi;");
 //$aashizi=$aashizi."<br>".$shizi."=".$shizia;
 
-if($shizia == $tonum){$total++;
-    echo $shizi."<br>";
+if($shizia == $tonum && $fixbug == 0){
+    if($shizi==$fixbug2){
+        $fixbug = 1;
+      $shizi = "";
+    }
+    else$total++;
+    if($total == 1){
+        $fixbug2=$shizi;
+    }
+    if($shizi) $shizi = $tonum."=".$shizi;
+    $echoo = $echoo.$shizi."<br>";
 }
 
 }
-    
-echo $total."个";
+}
+echo $total."个<br>".$echoo;
 //echo $aashizi;
 ?>
