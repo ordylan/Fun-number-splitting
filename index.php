@@ -56,7 +56,9 @@ $shizia = eval("return $shizi;");
 if($shizia == $tonum && $fixbug == 0){
     if($shizi==$fixbug2){
         $fixbug = 1;
-      $shizi = "";
+        $shizi = "";
+        echo $total."个<br>".$echoo;
+        return;
     }
     else$total++;
     if($total == 1){
